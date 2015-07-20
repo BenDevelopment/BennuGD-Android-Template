@@ -1,0 +1,23 @@
+BENNU FUNCTIONS 
+--------------- 
+Module Describe v1.1 (Build: Nov 21 2012 18:57:41)
+Copyright (C) 2009 SplinterGU
+This utility comes with ABSOLUTELY NO WARRANTY.
+moddesc -h for details
+
+Usage: moddesc [options] modulename 
+
+    -e     On fenix, only report exported functions
+    -F     only report funcions
+    -L     only report locals
+    -G     only report globals
+    -T     only report types
+    -C     only report constants
+    -H     only report hooks/callbacks
+    -D     only report modules/libs dependencies
+    -l     only report locals dependencies
+    -g     only report globals dependencies
+    -h     This help
+
+
+Press any key to continue...

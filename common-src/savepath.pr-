@@ -1,0 +1,65 @@
+Function savepath();
+Begin
+	if(os_id==os_win32) //windows
+		savegamedir=getenv("APPDATA")+developerpath;
+		if(savegamedir==developerpath) //windows 9x/me
+			savegamedir=cd();
+		else
+			crear_jerarquia(savegamedir);
+		end
+	elseif(os_id==os_linux) //linux
+		savegamedir=getenv("HOME")+developerpath;
+		crear_jerarquia(savegamedir);
+	elseif(os_id==1003) //android!
+		savegamedir="/data/data/com.pixjuegos.pixfrogger/files";
+	else
+		savegamedir="";
+		developerpath="";
+	end
+End
+
+Function crear_jerarquia(string nuevo_directorio)                // Mejor Function que Process aquí
+Private
+	string directorio_actual="";
+	string rutas_parciales[10];     // Sólo acepta la creación de un máximo de 10 directorios
+	int i_max=0;
+	foo;
+Begin
+    directorio_actual = cd();                        // Recuperamos el directorio actual de trabajo, para volver luego a él
+    if(chdir(nuevo_directorio) == 0)    // El directorio ya existe!
+		chdir(directorio_actual);
+        return 0;
+    end
+    i_max = split("[\\/]", nuevo_directorio, &rutas_parciales, 10);
+    chdir("/");
+    while (foo<i_max)
+        while(rutas_parciales[foo] == "")         // Se salta partes en blanco
+                if(foo++ >=i_max)
+                       chdir(directorio_actual);
+                       return 0;
+                end
+        end
+        if(chdir(rutas_parciales[foo]) == -1)
+                if(mkdir(rutas_parciales[foo]) == -1)        // Error al intentar crear el directorio
+                        chdir(directorio_actual);
+                        return -1;
+                end
+                chdir(rutas_parciales[foo]);
+        end;
+        foo++;
+    end
+    chdir(directorio_actual);
+    return 0;
+End
+
+Function guarda_opciones();
+Begin
+	save(savegamedir+"opciones",ops);
+End
+
+Function carga_opciones();
+Begin
+	if(file_exists(savegamedir+"opciones"))
+		load(savegamedir+"opciones",ops);
+	end
+End

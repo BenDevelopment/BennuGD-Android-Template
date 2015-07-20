@@ -1,0 +1,95 @@
+Function resolucioname(mi_ancho,mi_alto,mi_panoramico);
+Private
+	struct resoluciones_panoramicas[10];
+		x;
+		y;
+	end
+	struct resoluciones_no_panoramicas[10];
+		x;
+		y;
+	end
+begin
+	//posibles resoluciones panoramicas
+	resoluciones_panoramicas[x].x=1920; resoluciones_panoramicas[x].y=1080; //full hd
+	resoluciones_panoramicas[x++].x=1400; resoluciones_panoramicas[x].y=900; //algunos portátiles
+	resoluciones_panoramicas[x++].x=1366; resoluciones_panoramicas[x].y=768; //portátiles y monitores 19"
+	resoluciones_panoramicas[x++].x=1366; resoluciones_panoramicas[x].y=766; //portátiles y monitores 19" 2
+	resoluciones_panoramicas[x++].x=1280; resoluciones_panoramicas[x].y=720; //mid hd
+	resoluciones_panoramicas[x++].x=1024; resoluciones_panoramicas[x].y=600; //netbooks
+	resoluciones_panoramicas[x++].x=640; resoluciones_panoramicas[x].y=480; //este monitor no soporta nada panorámico
+	resoluciones_panoramicas[x++].x=320; resoluciones_panoramicas[x].y=240; //estamos en una gp2x...
+	
+	//posibles resoluciones no panoramicas
+	resoluciones_no_panoramicas[x=0].x=1280; resoluciones_no_panoramicas[x].y=1024; //monitor 17/19"
+	resoluciones_no_panoramicas[x++].x=1024; resoluciones_no_panoramicas[x].y=768; //monitor 15/17"/portatil con algunos años
+	resoluciones_no_panoramicas[x++].x=800; resoluciones_no_panoramicas[x].y=600; //monitor 14/15"/netbook/portátil viejuno
+	resoluciones_no_panoramicas[x++].x=640; resoluciones_no_panoramicas[x].y=480; //monitor ultra retro
+	resoluciones_no_panoramicas[x++].x=320; resoluciones_no_panoramicas[x].y=240; //gp2x!
+	
+	if(os_id==os_wii)
+		bpp=16;
+		scale_resolution=06400480; 
+		return;
+	end
+
+	if(os_id==os_caanoo or os_id==10 or os_id==os_gp2x or os_id==os_gp2x_wiz or os_id==os_gp32 or os_id==os_dc)
+		bpp=16;
+		scale_resolution=03200240; 
+		return;
+	end
+	
+    if(arcade_mode) 
+		scale_resolution=08000600; 
+		full_screen=1;
+		return; 
+	end
+	
+	if(os_id==1003 or os_id==1002) //móviles
+		//ESTO YA NO HACE FALTA :D
+		bpp=16;
+		return;
+		//frame;
+		//scale_resolution=graphic_info(0,0,g_width)*10000+graphic_info(0,0,g_height);
+		//say("---Escala: "+scale_resolution);
+		//return;
+	end
+
+	if(os_id==1010) //pandora
+		bpp=16;
+		scale_resolution=08000480;
+		return;
+	end
+	
+	if(os_id==1001) //psp
+		scale_resolution=04800272;
+		bpp=16;
+		return;
+	end
+	
+	if(mode_is_ok(mi_ancho,mi_alto,bpp,MODE_FULLSCREEN))
+		//scale_resolution=-1;
+		return;
+	end
+	
+	if(!mi_panoramico)
+		from x=0 to 10;
+			if(resoluciones_no_panoramicas[x].x==0 or resoluciones_no_panoramicas[x].y==0) break; end
+			if(mi_ancho>resoluciones_no_panoramicas[x].x and mi_alto>resoluciones_no_panoramicas[x].y and mode_is_ok(resoluciones_no_panoramicas[x].x,resoluciones_no_panoramicas[x].y,bpp,MODE_FULLSCREEN))
+				scale_resolution=resoluciones_no_panoramicas[x].x*10000+resoluciones_no_panoramicas[x].y;
+				break;
+			end
+		end
+	else
+		from x=0 to 10;
+			if(resoluciones_panoramicas[x].x==0 or resoluciones_panoramicas[x].y==0) break; end
+			if(mi_ancho>resoluciones_panoramicas[x].x and mi_alto>resoluciones_panoramicas[x].y and mode_is_ok(resoluciones_panoramicas[x].x,resoluciones_panoramicas[x].y,bpp,MODE_FULLSCREEN))
+				scale_resolution=resoluciones_panoramicas[x].x*10000+resoluciones_panoramicas[x].y;
+				break;
+			end
+		end
+	end
+	
+	//por algún motivo que no alcanzo a comprender, el juego no es capaz de funcionar en ninguno de los modos 
+	// comprobados por lo que vamos a por el safe mode
+	if(scale_resolution==-1) scale_resolution=03200240; end
+end

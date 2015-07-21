@@ -12,6 +12,10 @@ cd src
 move main.dcb ..\main.dcb
 cd ..
 
+if not exist "fpg" mkdir fpg
+if not exist "ogg" mkdir ogg
+if not exist "wav" mkdir wav
+
 REM call compilefpgs 16
 call ..\scripts\decompressfpgs.bat
 

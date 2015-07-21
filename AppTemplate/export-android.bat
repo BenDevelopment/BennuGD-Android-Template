@@ -12,8 +12,8 @@ cd src
 move main.dcb ..\main.dcb
 cd ..
 
-REM call compilarfpgs 16
-call ..\scripts\descomprimefpgs.bat
+REM call compilefpgs 16
+call ..\scripts\decompressfpgs.bat
 
 echo Exporting...
 mkdir export
@@ -26,17 +26,17 @@ mkdir export\assets\ogg
 mkdir export\assets\wav
 
 echo Copying resources from android...
-copy recursos\android\hdpi.png export\res\drawable-hdpi\icon.png /y
-copy recursos\android\ldpi.png export\res\drawable-ldpi\icon.png /y
-copy recursos\android\mdpi.png export\res\drawable-mdpi\icon.png /y
-copy recursos\android\xhdpi.png export\res\drawable-xhdpi\icon.png /y
+copy resources\android\hdpi.png export\res\drawable-hdpi\icon.png /y
+copy resources\android\ldpi.png export\res\drawable-ldpi\icon.png /y
+copy resources\android\mdpi.png export\res\drawable-mdpi\icon.png /y
+copy resources\android\xhdpi.png export\res\drawable-xhdpi\icon.png /y
 
-copy recursos\android\strings.xml export\res\values\strings.xml /y
-copy recursos\android\AndroidManifest.xml export\ /y
-copy recursos\android\build.xml export\ /y
+copy resources\android\strings.xml export\res\values\strings.xml /y
+copy resources\android\AndroidManifest.xml export\ /y
+copy resources\android\build.xml export\ /y
 
 mkdir export\src\com
-xcopy /r/e/y recursos\android\com export\src\com
+xcopy /r/e/y resources\android\com export\src\com
 
 echo Copying the game...
 copy loading.png export\assets /y
@@ -48,5 +48,5 @@ copy main.dcb export\assets /y
 echo Export done. Trying to install on the Android device...
 
 cd export
-..\..\scripts\genera-apk.bat
+..\..\scripts\generate-apk.bat
 pause

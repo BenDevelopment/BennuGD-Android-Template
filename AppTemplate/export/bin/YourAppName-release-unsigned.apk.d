@@ -1,0 +1,22 @@
+C:\BennuGD\BennuGD-Android-Template\AppTemplate\export\bin\YourAppName-release-unsigned.apk : \
+C:\BennuGD\BennuGD-Android-Template\AppTemplate\export\bin\YourAppName.ap_ \
+C:\BennuGD\BennuGD-Android-Template\AppTemplate\export\bin\classes.dex \
+C:\BennuGD\BennuGD-Android-Template\AppTemplate\export\libs\ouya-sdk.jar \
+C:\BennuGD\BennuGD-Android-Template\AppTemplate\export\libs\armeabi\libbgdrtm.so \
+C:\BennuGD\BennuGD-Android-Template\AppTemplate\export\libs\armeabi\libmain.so \
+C:\BennuGD\BennuGD-Android-Template\AppTemplate\export\libs\armeabi\libmikmod.so \
+C:\BennuGD\BennuGD-Android-Template\AppTemplate\export\libs\armeabi\libpng.so \
+C:\BennuGD\BennuGD-Android-Template\AppTemplate\export\libs\armeabi\libSDL2.so \
+C:\BennuGD\BennuGD-Android-Template\AppTemplate\export\libs\armeabi\libSDL2_mixer.so \
+C:\BennuGD\BennuGD-Android-Template\AppTemplate\export\libs\armeabi-v7a\libbgdrtm.so \
+C:\BennuGD\BennuGD-Android-Template\AppTemplate\export\libs\armeabi-v7a\libmain.so \
+C:\BennuGD\BennuGD-Android-Template\AppTemplate\export\libs\armeabi-v7a\libmikmod.so \
+C:\BennuGD\BennuGD-Android-Template\AppTemplate\export\libs\armeabi-v7a\libpng.so \
+C:\BennuGD\BennuGD-Android-Template\AppTemplate\export\libs\armeabi-v7a\libSDL2.so \
+C:\BennuGD\BennuGD-Android-Template\AppTemplate\export\libs\armeabi-v7a\libSDL2_mixer.so \
+C:\BennuGD\BennuGD-Android-Template\AppTemplate\export\libs\x86\libbgdrtm.so \
+C:\BennuGD\BennuGD-Android-Template\AppTemplate\export\libs\x86\libmain.so \
+C:\BennuGD\BennuGD-Android-Template\AppTemplate\export\libs\x86\libmikmod.so \
+C:\BennuGD\BennuGD-Android-Template\AppTemplate\export\libs\x86\libpng.so \
+C:\BennuGD\BennuGD-Android-Template\AppTemplate\export\libs\x86\libSDL2.so \
+C:\BennuGD\BennuGD-Android-Template\AppTemplate\export\libs\x86\libSDL2_mixer.so \

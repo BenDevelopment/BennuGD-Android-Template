@@ -2,4 +2,4 @@
 
 set bits=%1
 if "%bits%"==""; set bits=32
-call ..\scripts\compilarfpgs.bat %bits%
+call ..\scripts\compilefpgs.bat %bits%

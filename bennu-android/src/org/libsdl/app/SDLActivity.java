@@ -31,7 +31,7 @@ import java.io.FileWriter;
 import java.io.BufferedWriter;
 import java.io.FileOutputStream;
 import java.io.File;
-import tv.ouya.console.api.OuyaController;
+/*import tv.ouya.console.api.OuyaController;*/
 
 
 
@@ -45,9 +45,9 @@ public class SDLActivity extends Activity {
     public static boolean mIsPaused = false, mIsSurfaceReady = false;
 
 	// OUYA
-	public static boolean isOuya = false;
+	/*public static boolean isOuya = false;
 	public static int backButtonDelayOuya = 3;
-	public static Thread OuyaButtonThread;
+	public static Thread OuyaButtonThread;*/
 	
 	// Language
 	public static Locale Language;
@@ -123,10 +123,10 @@ public class SDLActivity extends Activity {
 		
 		// Checking if we are on a OUYA
 		try {
-			Class<?> buildClass = Class.forName("android.os.Build");
+			/*Class<?> buildClass = Class.forName("android.os.Build");
 			Field deviceField = buildClass.getDeclaredField("DEVICE");
 			Object device = deviceField.get(null);
-			SDLActivity.isOuya = "ouya_1_1".equals(device);
+			SDLActivity.isOuya = "ouya_1_1".equals(device);*/
 		} catch(Exception e) {
 		}
 			
@@ -638,7 +638,7 @@ class SDLMain implements Runnable {
     }
 }
 
-class OuyaButton implements Runnable {
+/*class OuyaButton implements Runnable {
 	public void run() {
 		//OUYA hack for menu button
 		while(1 == 1) {
@@ -653,7 +653,7 @@ class OuyaButton implements Runnable {
 			} catch(InterruptedException e) {}
 		}
 	}
-}
+}*/
 
 /* This code will only execute on API >= 12 */
 class _SDLSurface extends SDLSurface implements SurfaceHolder.Callback,
@@ -696,11 +696,11 @@ class _SDLSurface extends SDLSurface implements SurfaceHolder.Callback,
             switch(action) {
                 case MotionEvent.ACTION_MOVE:
 					int id;
-					if (SDLActivity.isOuya) {
+					/*if (SDLActivity.isOuya) {
 						id = OuyaController.getPlayerNumByDeviceId( event.getDeviceId() );
-					} else {
+					} else {*/
 						id = SDLActivity.getJoyId( event.getDeviceId() );
-					}
+					/*}*/
                     float x = event.getAxisValue(MotionEvent.AXIS_X, actionPointerIndex);
                     float y = event.getAxisValue(MotionEvent.AXIS_Y, actionPointerIndex);
                     SDLActivity.onNativeJoy(id, 0, x);
@@ -842,14 +842,14 @@ class SDLSurface extends SurfaceView implements SurfaceHolder.Callback,
             SDLActivity.handleResume();
         }
 
-		if(SDLActivity.isOuya) {
+		/*if(SDLActivity.isOuya) {
 			OuyaController.init(getContext());
 
 			if (SDLActivity.OuyaButtonThread == null) {
 				SDLActivity.OuyaButtonThread = new Thread(new OuyaButton(), "OuyaButtonThread");
 				SDLActivity.OuyaButtonThread.start();
 			}
-		}
+		}*/
 		
 		Log.v("SDL", "Language: " + SDLActivity.Language.getDefault().getLanguage());
 		
@@ -881,7 +881,7 @@ class SDLSurface extends SurfaceView implements SurfaceHolder.Callback,
     @Override
     public boolean onKey(View  v, int keyCode, KeyEvent event) {
 	
-		if (SDLActivity.isOuya) {
+		/*if (SDLActivity.isOuya) {
 			if(keyCode == KeyEvent.KEYCODE_MENU) {
 				if(event.getAction() == KeyEvent.ACTION_UP) {
 					SDLActivity.backButtonDelayOuya = 0;
@@ -890,7 +890,7 @@ class SDLSurface extends SurfaceView implements SurfaceHolder.Callback,
 				}
 				return true;
 			}
-		}
+		}*/
 	
         // Dispatch the different events depending on where they come from
         if(event.getSource() == InputDevice.SOURCE_KEYBOARD) {
@@ -916,11 +916,11 @@ class SDLSurface extends SurfaceView implements SurfaceHolder.Callback,
         }else if ( (event.getSource() & 0x00000401) != 0 || /* API 12: SOURCE_GAMEPAD */
                    (event.getSource() & InputDevice.SOURCE_DPAD) != 0 ) {
 				   int id;
-				if (SDLActivity.isOuya) {
+				/*if (SDLActivity.isOuya) {
 					id = OuyaController.getPlayerNumByDeviceId( event.getDeviceId() );
-				} else {
+				} else {*/
 					id = SDLActivity.getJoyId( event.getDeviceId() );
-				}
+				/*}*/
 				if (event.getAction() == KeyEvent.ACTION_DOWN) {
 					SDLActivity.onNativePadDown(id, keyCode);
 				} else if (event.getAction() == KeyEvent.ACTION_UP) {

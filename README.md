@@ -13,3 +13,4 @@ This is a very simple tool to compile your BennuGD games for Android in a few cl
 * [Change Android version](https://github.com/BenUnikal/BennuGD-Android-Template/wiki/Change-android-version)
 * [Fixe multi task bugs with BennuGD app](https://github.com/BenUnikal/BennuGD-Android-Template/wiki/BennuGD-idle-trick.)
 
+*Thanks to [Pixel](http://forum.bennugd.org/index.php?action=profile;u=45) and [GameBlabla](http://www.bennugd.fr/index.php?mod=espace_membre&ac=profil&id=137).*

@@ -1,5 +1,5 @@
 # BennuGD Android Template
-Android template for BennuGD app by Benjamin Hoffmann (aka Grew).
+Android template for BennuGD app by Benjamin Hoffmann (aka [Grew](http://www.bennugd.fr/index.php?mod=espace_membre&ac=profil&id=1)).
 
 Based on [plantilla template](http://www.bennugd.org/node/192).
 

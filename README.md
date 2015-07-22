@@ -10,6 +10,7 @@ This is a very simple tool to compile your BennuGD games for Android in a few cl
 * [Create a keystore](https://github.com/BenUnikal/BennuGD-Android-Template/wiki/Create-a-Keystore)
 * [Change Android version](https://github.com/BenUnikal/BennuGD-Android-Template/wiki/Change-android-version)
 * [Fixe multi task bugs with BennuGD app](https://github.com/BenUnikal/BennuGD-Android-Template/wiki/BennuGD-idle-trick.)
+* [Remove Immersive mode](https://github.com/BenUnikal/BennuGD-Android-Template/wiki/Remove-Android-immersive-mode)
 
 
 

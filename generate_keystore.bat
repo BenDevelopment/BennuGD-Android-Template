@@ -6,4 +6,4 @@ move "utils\jdk\bin\%key_name%.keystore" ""
 set currentpath=%~dp0
 set currentpath=%currentpath:\=/%
 @echo key.store=%currentpath%%key_name%.keystore>bennu-android/build.properties
-@echo key.alias=%alias_name%>>bennu-android/build.properties
+REM @echo key.alias=%alias_name%>>bennu-android/build.properties

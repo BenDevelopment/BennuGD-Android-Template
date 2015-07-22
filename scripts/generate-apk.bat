@@ -1,4 +1,8 @@
 set /p keystore_name=Enter the name of your KeyStore : 
+echo %CD%
+set /p alias_name=Enter the alias : 
+@echo key.alias=%alias_name%>>build.properties
+pause
 cmd /c if exist ..\..\%keystore_name%.keystore ant release install
 cmd /c if not exist ..\..\%keystore_name%.keystore ant debug install
 cd bin

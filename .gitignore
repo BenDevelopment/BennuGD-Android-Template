@@ -3,3 +3,4 @@ platforms
 export
 /AppTemplate/*.dcb
 temp
+/bennu-android/build.properties

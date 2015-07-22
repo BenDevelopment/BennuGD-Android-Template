@@ -13,6 +13,6 @@ This is a very simple tool to compile your BennuGD games for Android in a few cl
 
 
 
-*Thanks to [Pixel](http://forum.bennugd.org/index.php?action=profile;u=45) (This tool is based on [plantilla template](http://www.bennugd.org/node/192)) and [GameBlabla](http://www.bennugd.fr/index.php?mod=espace_membre&ac=profil&id=137).*
+*Thanks to [Pixel](http://forum.bennugd.org/index.php?action=profile;u=45) (this tool is based on [plantilla template](http://www.bennugd.org/node/192)) and [GameBlabla](http://www.bennugd.fr/index.php?mod=espace_membre&ac=profil&id=137).*
 
 *<a href="https://www.facebook.com/pages/BennuGD/170939512928213?fref=ts" target="_blank">BennuGD on Facebook</a>*

@@ -1,4 +1,4 @@
-# BennuGD-Android-Template
+# BennuGD Android Template
 Android template for BennuGD app by Benjamin Hoffmann (aka Grew).
 
 Based on [plantilla template](http://www.bennugd.org/node/192).

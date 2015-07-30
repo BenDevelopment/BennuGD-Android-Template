@@ -12,22 +12,10 @@ cd src
 move main.dcb ..\main.dcb
 cd ..
 
-if not exist "fpg" mkdir fpg
-if not exist "ogg" mkdir ogg
-if not exist "wav" mkdir wav
-
-REM call compilefpgs 16
-call ..\scripts\decompressfpgs.bat
-
 echo Exporting...
 mkdir export
 echo Copying base Bennu-android...
 xcopy /r/e/y ..\bennu-android .\export
-
-echo Creating folders...
-mkdir export\assets\fpg
-mkdir export\assets\ogg
-mkdir export\assets\wav
 
 echo Copying resources from android...
 copy resources\android\hdpi.png export\res\drawable-hdpi\icon.png /y
@@ -43,10 +31,8 @@ mkdir export\src\com
 xcopy /r/e/y resources\android\com export\src\com
 
 echo Copying the game...
-copy loading.png export\assets /y
-copy fpg\*.fpg export\assets\fpg /y
-copy ogg\*.ogg export\assets\ogg /y
-copy wav\*.wav export\assets\wav /y
+mkdir export\assets
+xcopy /r/e/y src export\assets
 copy main.dcb export\assets /y
 
 echo Export done. Trying to install on the Android device...
